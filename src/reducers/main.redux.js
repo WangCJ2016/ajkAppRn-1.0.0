@@ -53,7 +53,7 @@ export function homeBanner(info) {
       params:info
       })
       .then(res => {
-       
+         console.log(res)
         if (res.status === 200 && res.data.success) {
           if(info.level===0){
             dispatch(homeBannerSuccess({level0Banners:res.data.result}))

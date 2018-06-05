@@ -111,9 +111,9 @@ const MainScreenNavigator = TabNavigator({
     screen: HomePage,
     navigationOptions: {
       header:false,
-      tabBarLabel:(<Text></Text>),
+      tabBarLabel:'智控',
       tabBarIcon: ({focused,tintColor}) =>(
-        <HomeTabItem  focused={focused}/>
+        <Image style={[{tintColor: tintColor},{width:22,height:22}]} source={require('../assets/images/home1.png')} />
       ),
     },
    
@@ -144,14 +144,22 @@ const MainScreenNavigator = TabNavigator({
     TabBarTop: true,
     swipeEnabled:false,
     animationEnabled:false,
+   
+    tabStyle:{
+      borderColor: '#FF7E2D',
+      color: '#FF7E2D',
+    },
+    
     tabBarOptions: {
         style: {
-            height:49
+            height:49,
+            borderTopColor: '#FF7E2D',
+            
         },
       activeBackgroundColor:'white',
-      activeTintColor:'#ffb354',
+      activeTintColor:'#FF7E2D',
       inactiveBackgroundColor:'white',
-      inactiveTintColor:'#aaa',
+      inactiveTintColor:'#afafaf',
       labelStyle:{fontSize:13}
   }
 })

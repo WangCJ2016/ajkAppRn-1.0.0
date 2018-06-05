@@ -363,7 +363,7 @@ const styles = StyleSheet.create({
   },
   item_address: {
     fontSize: 13,
-    width:screenWidth - 150,
+    width:screenWidth - 170,
     color: '#ababab',
     marginLeft: 5
   },
