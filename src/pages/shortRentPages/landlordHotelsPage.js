@@ -12,6 +12,7 @@ import {
  import ViewUtils from '../../utils/viewUtils'
  import ListCell from '../../components/listCellCom'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
+ import { themeColor } from '../../theme'
 
  @InphoneXHoc
  @connect(
@@ -106,7 +107,7 @@ import {
     width: 50,
     height:25,
     borderWidth:0.5,
-    borderColor:'#ffb354',
+    borderColor:themeColor,
     justifyContent: 'center',
     alignItems: 'center'
    }

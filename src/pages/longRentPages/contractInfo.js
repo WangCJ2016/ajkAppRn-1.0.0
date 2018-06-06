@@ -13,6 +13,7 @@ import { uploadImage } from '../../reducers/user.redux'
 import {connect} from 'react-redux'
 import { modifyLeaseIntent } from '../../reducers/main.redux'
 import { dateFormat } from '../../utils/fnUtils'
+import { themeColor } from '../../theme'
 
 @connect(
   null,{
@@ -33,7 +34,7 @@ import { dateFormat } from '../../utils/fnUtils'
     headerRight: (  
         <TouchableOpacity onPress={()=>navigation.state.params.handleSubmit()}>
           <View style={{flexDirection:'row',alignItems:'center',marginRight:10}}>
-            <Text style={{color:'#ffb354',fontSize:16}}>提交</Text>
+            <Text style={{color:themeColor,fontSize:16}}>提交</Text>
           </View>
         </TouchableOpacity>
      ),  

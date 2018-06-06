@@ -19,6 +19,7 @@ import {
  import ViewUtils from '../../utils/viewUtils'
  import { connect } from 'react-redux'
  import { dataSuccess,addLandlordHouse,houseAssorts,modifyLandlordHouse,modifyDeviceOrder,modifyHouseAptitudes,delLandlordHouse } from '../../reducers/longRent.redux'
+ import { themeColor } from '../../theme'
  const Item = List.Item
 
  @connect(
@@ -462,7 +463,7 @@ import {
   headerRight: (  
       <TouchableOpacity onPress={()=>navigation.state.params.handleNext()}>
         <View style={{flexDirection:'row',alignItems:'center',marginRight:10}}>
-          <Text style={{color:'#ffb354',fontSize:16}}>发布</Text>
+          <Text style={{color:themeColor,fontSize:16}}>发布</Text>
         </View>
       </TouchableOpacity>
    ),  

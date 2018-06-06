@@ -8,7 +8,7 @@ import {
  import { orderDetail } from '../../reducers/shopcar.redux'
  import ViewUtils from '../../utils/viewUtils'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
-
+ import { themeColor } from '../../theme'
  @InphoneXHoc
  @connect(
   state => ({order: state.order}),
@@ -45,7 +45,7 @@ import {
      const order = this.props.order
      return (
        <ScrollView style={{flex:1}}>
-         <View style={{height:112,backgroundColor: '#ffb354'}}>
+         <View style={{height:112,backgroundColor: themeColor}}>
             <Text style={{fontSize:18,marginTop:20,marginLeft:20,color:'#fff'}}>等待入住</Text>
             <Text style={{fontSize:14,marginTop:10,marginLeft:20,color:'#fff'}}>距离入住还剩?天</Text>
          </View>

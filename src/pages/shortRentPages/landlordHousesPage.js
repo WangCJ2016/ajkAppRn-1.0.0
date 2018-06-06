@@ -11,6 +11,7 @@ import {
  import RefreshListView, {RefreshState} from 'react-native-refresh-list-view'
  import ListCell from '../../components/listCellCom'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
+ import { themeColor } from '../../theme'
 
  @InphoneXHoc
  @connect(
@@ -48,9 +49,9 @@ import {
          p1={order.name}
          p1Style={{color: '#333',fontSize: 16}}
          p2={'¥'+order.defaultPrice}
-         p2Style={{color: '#ffb354'}}
+         p2Style={{color: themeColor}}
          rightRender={()=>(
-              <Text style={{color:'#ffb354'}}>更改房价</Text>
+              <Text style={{color:themeColor}}>更改房价</Text>
          )}
          cb={()=>this.props.navigation.navigate('LandlordHouseCalendar',{houseId:order.id,defaultPrice:order.defaultPrice})}
        ></ListCell>
@@ -106,7 +107,7 @@ import {
     width: 50,
     height:25,
     borderWidth:0.5,
-    borderColor:'#ffb354',
+    borderColor:themeColor,
     justifyContent: 'center',
     alignItems: 'center'
    }

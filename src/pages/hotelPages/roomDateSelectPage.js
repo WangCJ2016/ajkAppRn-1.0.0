@@ -8,7 +8,7 @@ import {
  import { connect } from 'react-redux'
  import { roomCalendar,selectDays } from '../../reducers/hotel.redux'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
-
+ import { themeColor } from '../../theme'
  @InphoneXHoc
  @connect(
    state => ({hotel: state.hotel}),
@@ -48,8 +48,8 @@ import {
        <View style={{flex:1}}>
          <Calendar
            months={6}
-           selectedColor='#ffb354'
-           highlightColor='#ffb354'
+           selectedColor={themeColor}
+           highlightColor={themeColor}
            startDateStr={selectedRange?selectedRange.startDateStr:''}
            endDateStr={selectedRange?selectedRange.endDateStr:''}
            onSelectedDateBlock={this.onSelectedDateBlock}

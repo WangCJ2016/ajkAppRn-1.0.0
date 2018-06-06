@@ -17,6 +17,7 @@ import {
  import Modal from "react-native-modal"
  import { Button } from 'antd-mobile'
  import iphonexHoc from '../hoc/inphoneXhoc'
+ import { themeColor } from '../theme'
 
  @iphonexHoc
  @connect(
@@ -58,7 +59,6 @@ import {
    }
    componentDidMount() {
       if(this.props.user.token) {
-        cb()
         this.onHeaderRefresh()
       }else{
         this.props.navigation.navigate('Login')
@@ -105,7 +105,7 @@ import {
                 p1Style={{color: '#333'}}
                 p2={house.inTimes}
                 p3={'¥'+house.totalFee}
-                p3Style={{color: '#ffb354'}}
+                p3Style={{color: themeColor}}
                 cb={()=>this.openModal(house.subOrderCode)}
              ></ListCell>
               </View>
@@ -130,7 +130,7 @@ import {
                 p1Style={{color: '#333'}}
                 p2={house.inTimes}
                 p3={'¥'+house.totalFee}
-                p3Style={{color: '#ffb354'}}
+                p3Style={{color: themeColor}}
                 cb={()=>this.hasinClick(house)}
              ></ListCell>
               </View>
@@ -177,9 +177,9 @@ import {
           }
           <ScrollableTabView
             style={{flex:1}}
-            tabBarUnderlineStyle={{backgroundColor: '#ffb354', height: 2}}
+            tabBarUnderlineStyle={{backgroundColor: themeColor, height: 2}}
             tabBarInactiveTextColor='mintcream'
-            tabBarActiveTextColor='#ffb354'
+            tabBarActiveTextColor={themeColor}
             tabBarInactiveTextColor='#333'
             ref="scrollableTabView"
             tabBarBackgroundColor="#fff"

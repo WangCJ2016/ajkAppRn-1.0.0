@@ -11,6 +11,7 @@ import {
  import ViewUtils from '../../utils/viewUtils'
  import BlankPage from '../../components/blankPage'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
+ import { themeColor } from '../../theme'
 
  @InphoneXHoc
  @connect(
@@ -49,7 +50,7 @@ import {
              
              <Text 
              onPress={()=>this.props.navigation.navigate('CommentPage',{hotel:hotel})}
-             style={{width:50,height:25,borderWidth:0.5,borderColor: '#ffb354',borderRadius:2,backgroundColor: '#FFFFFF',textAlign: 'center',lineHeight:25,color:'#ffb354'}}>评价</Text>
+             style={{width:50,height:25,borderWidth:0.5,borderColor: themeColor,borderRadius:2,backgroundColor: '#FFFFFF',textAlign: 'center',lineHeight:25,color:themeColor}}>评价</Text>
          </View>
          }
        </View>

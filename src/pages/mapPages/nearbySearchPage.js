@@ -22,6 +22,7 @@ import {
  import HotelModal from '../../components/nearbySearchModal/hotelModal'
  const WIDTH = Dimensions.get('window').width
  import { isIphoneX } from '../../utils/fnUtils'
+ import { themeColor } from '../../theme'
 
  @connect(
    state => ({map:state.map}),
@@ -189,7 +190,7 @@ import {
         <DropdownMenu style={{flex: 1}}
           bgColor={"#fff"}                            //the background color of the head, default is grey
           tintColor={"#333"}                        //the text color of the head, default is white
-          selectItemColor={"#ffb354"}                    //the text color of the selected item, default is red
+          selectItemColor={themeColor}                    //the text color of the selected item, default is red
           data={data}                                
           maxHeight={410}     
           firstClickFn={this.modalAction.bind(this)}

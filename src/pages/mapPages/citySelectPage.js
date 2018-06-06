@@ -16,7 +16,7 @@ import ViewUtils from '../../utils/viewUtils'
 
 const {height}  = Dimensions.get('window')
 import InphoneXHoc from '../../hoc/inphoneXhoc'
-
+import { themeColor} from '../../theme'
  @InphoneXHoc
 @connect(
   state=>({map:state.map}),
@@ -79,7 +79,7 @@ import InphoneXHoc from '../../hoc/inphoneXhoc'
       <TouchableOpacity 
       onPress={()=>this.letterClick(Object.keys(letter)[0])}
       key={Object.keys(letter)[0]}>
-        <Text style={{color:'#ffb354'}}>{Object.keys(letter)[0]}</Text>
+        <Text style={{color:themeColor}}>{Object.keys(letter)[0]}</Text>
       </TouchableOpacity>
     ))
   }

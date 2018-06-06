@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableHighlight, Image, TouchableOpacity, ScrollView, Animated, Easing,StyleSheet} from 'react-native';
 import PropTypes from 'prop-types'
+import { themeColor } from '../../theme'
 
  class DropdownMenu extends Component {
 
@@ -64,7 +65,7 @@ import PropTypes from 'prop-types'
                const isSelect = this.state.selectSecondIndex===title
                return <TouchableOpacity key={index} onPress={()=>{this.setState({selectSecondIndex:title});this.openOrClosePanel(this.state.activityIndex);this.props.handler(this.state.activityIndex, index);}}>
                    <View style={[{width: 50,height:50,borderRadius:25,justifyContent:'center',alignItems:'center',
-									 backgroundColor:isSelect?'#ffb354':'#fff',
+									 backgroundColor:isSelect?themeColor:'#fff',
 									 borderColor:'#d8d8d8',						
 									 borderWidth:!isSelect?1:0		},					
                   ]}>

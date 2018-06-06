@@ -13,7 +13,7 @@ import {
  import { Modal } from 'antd-mobile'
  import { withNavigation } from 'react-navigation'
  const HEIGHT = Dimensions.get('window').height
-
+ import { themeColor } from '../../theme'
  @withNavigation
  class PowerWarm extends React.Component {
    constructor() {
@@ -91,7 +91,7 @@ import {
      return (
        <ScrollView>
           <ScrollView style={[styles.listView,{height:height}]}>
-             <Text style={[styles.titleText,{height:50,lineHeight:50,color:'#ffb354'}]}>预警列表</Text>
+             <Text style={[styles.titleText,{height:50,lineHeight:50,color:themeColor}]}>预警列表</Text>
              {this.powerRecordRender()}
           </ScrollView>
 

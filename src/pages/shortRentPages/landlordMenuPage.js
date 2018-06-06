@@ -10,6 +10,7 @@ import {
  import {connect} from 'react-redux'
  import {getInfo} from '../../reducers/user.redux'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
+ import { themeColor } from '../../theme'
 
  @InphoneXHoc
 @connect(
@@ -31,8 +32,8 @@ import {
                disabled={type===1?false:true} 
                onPress={()=>{this.props.navigation.navigate('LandLoadAccount')}}>
               <View style={{alignItems:'center'}}>
-                <Image style={{tintColor:type===1?'#ffb354':'#ababab'}} source={require('../../assets/images/myacount_icon.png')}></Image>
-                <Text style={[styles.figure_text,{color:type===1?'#ffb354':'#ababab'}]}>我的收入</Text>
+                <Image style={{tintColor:type===1?themeColor:'#ababab'}} source={require('../../assets/images/myacount_icon.png')}></Image>
+                <Text style={[styles.figure_text,{color:type===1?themeColor:'#ababab'}]}>我的收入</Text>
               </View>
              </TouchableOpacity>
              <TouchableOpacity 
@@ -40,8 +41,8 @@ import {
                disabled={type===1?false:true} 
                onPress={()=>{}}>
               <View style={{alignItems:'center'}}>
-                <Image style={{tintColor:'#ffb354'}} source={require('../../assets/images/join_icon.png')}></Image>
-                <Text style={[styles.figure_text,{color:'#ffb354'}]}>加盟我们</Text>
+                <Image style={{tintColor:themeColor}} source={require('../../assets/images/join_icon.png')}></Image>
+                <Text style={[styles.figure_text,{color:themeColor}]}>加盟我们</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity 
@@ -49,8 +50,8 @@ import {
               disabled={type===1?false:true} 
               onPress={()=>{this.props.navigation.navigate('LandlordHotels')}}>
               <View style={{alignItems:'center'}}>
-                <Image style={{tintColor:type===1?'#ffb354':'#ababab'}} source={require('../../assets/images/myhouse_icon.png')}></Image>
-                <Text style={[styles.figure_text,{color:type===1?'#ffb354':'#ababab'}]}>我的房子</Text>
+                <Image style={{tintColor:type===1?themeColor:'#ababab'}} source={require('../../assets/images/myhouse_icon.png')}></Image>
+                <Text style={[styles.figure_text,{color:type===1?themeColor:'#ababab'}]}>我的房子</Text>
               </View>
            </TouchableOpacity>
           </ImageBackground>

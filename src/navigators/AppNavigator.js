@@ -83,7 +83,7 @@ import LandlordInterntPage from '../pages/landlordIntentPage'
 import CustomerIntentPage from '../pages/customerIntentPage'
 
 import HomeTabItem from './homeTabItem'
-
+import { themeColor } from '../theme'
 
 const MainScreenNavigator = TabNavigator({
   MainPage: { 
@@ -146,18 +146,18 @@ const MainScreenNavigator = TabNavigator({
     animationEnabled:false,
    
     tabStyle:{
-      borderColor: '#FF7E2D',
-      color: '#FF7E2D',
+      borderColor: themeColor,
+      color: themeColor,
     },
     
     tabBarOptions: {
         style: {
             height:49,
-            borderTopColor: '#FF7E2D',
+            borderTopColor: themeColor,
             
         },
       activeBackgroundColor:'white',
-      activeTintColor:'#FF7E2D',
+      activeTintColor:themeColor,
       inactiveBackgroundColor:'white',
       inactiveTintColor:'#afafaf',
       labelStyle:{fontSize:13}

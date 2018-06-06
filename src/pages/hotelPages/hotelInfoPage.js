@@ -8,6 +8,7 @@ import {
  } from 'react-native'
  import { Button } from 'antd-mobile'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
+ import { themeColor } from '../../theme'
 
  @InphoneXHoc
  class HotelInfoPage extends React.Component {
@@ -22,7 +23,7 @@ import {
               <Text>联系方式：{data.telephone}</Text>
             </View>
             <TouchableOpacity 
-            style={{flexDirection:'row',backgroundColor: '#ffb354',padding:10,borderRadius:3}}
+            style={{flexDirection:'row',backgroundColor: themeColor,padding:10,borderRadius:3}}
             onPress={()=>{Linking.openURL(`tel:${data.telephone}`)}}>
               <Image source={require('../../assets/images/telephone_icon.png')}></Image>
               <Text style={{color:'#fff'}}>联系酒店</Text>

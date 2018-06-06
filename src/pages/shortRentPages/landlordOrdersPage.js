@@ -13,6 +13,7 @@ import {
  import ViewUtils from '../../utils/viewUtils'
  import ScrollableTabView,{ScrollableTabBar} from 'react-native-scrollable-tab-view'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
+ import { themeColor } from '../../theme'
 
  @InphoneXHoc
  @connect(
@@ -58,7 +59,7 @@ import {
                   p1={hotel.hotelName}
                   p1Style={{color: '#333',fontSize: 16}}
                   p2={house.houseName}
-                  p3Style={{color: '#ffb354'}}
+                  p3Style={{color: themeColor}}
                   p3={'¥'+house.totalFee}
                 ></ListCell>
               </View>
@@ -101,9 +102,9 @@ import {
      <View style={{flex:1}}>
      <ScrollableTabView
           style={{flex:1}}
-          tabBarUnderlineStyle={{backgroundColor: '#ffb354', height: 2}}
+          tabBarUnderlineStyle={{backgroundColor: themeColor, height: 2}}
           tabBarInactiveTextColor='mintcream'
-          tabBarActiveTextColor='#ffb354'
+          tabBarActiveTextColor={themeColor}
           tabBarInactiveTextColor='#333'
           tabBarTextStyle={{fontSize:16}}
           ref="scrollableTabView"
@@ -164,7 +165,7 @@ import {
     width: 50,
     height:25,
     borderWidth:0.5,
-    borderColor:'#ffb354',
+    borderColor:themeColor,
     justifyContent: 'center',
     alignItems: 'center'
    }

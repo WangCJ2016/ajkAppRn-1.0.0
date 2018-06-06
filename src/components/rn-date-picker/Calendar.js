@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 const { width } = Dimensions.get('window');
 
 import Month from './Month';
-
+import { themeColor } from '../../theme'
 
 export default class Calendar extends React.Component {
 	static defaultProps = {
@@ -30,15 +30,15 @@ export default class Calendar extends React.Component {
 		monthTextColor: '#363636',
 
 		dayCommonBackColor: 'white',
-		dayCommonTextColor: '#ffb354',
+		dayCommonTextColor: themeColor,
 
 		dayDisabledBackColor: 'white',
 		dayDisabledTextColor: '#E1E4E7',
 
-		daySelectedBackColor: '#ffb354',
+		daySelectedBackColor: themeColor,
 		daySelectedTextColor: 'white',
 
-		dayInRangeBackColor: '#ffb354',
+		dayInRangeBackColor: themeColor,
 		dayInRangeTextColor: '#FFFFFF',
 
 		isFutureDate: true,

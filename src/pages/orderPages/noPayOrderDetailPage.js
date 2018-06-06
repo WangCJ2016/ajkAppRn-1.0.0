@@ -11,6 +11,7 @@ import {
  import ViewUtils from '../../utils/viewUtils'
  import { orderDetail,getAlipayParams,cancelOrder } from '../../reducers/shopcar.redux'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
+ import { themeColor } from '../../theme'
 
  @InphoneXHoc
  @connect(
@@ -51,7 +52,7 @@ import {
              <Text style={styles.fontSize_16}>订单状态:</Text>
              <Text style={[styles.fontSize_16,{color:'#333'}]}>待付款</Text>
            </View>
-           <Text style={{color:'#ffb354'}}>¥0:00</Text>
+           <Text style={{color:themeColor}}>¥0:00</Text>
          </View>
          {this.props.order.orderDetail?this.props.order.orderDetail.hotels.map((hotel,index)=>(
           <View style={{marginTop:10}} key={index}>

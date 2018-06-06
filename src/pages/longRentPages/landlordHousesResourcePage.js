@@ -17,6 +17,7 @@ import {
  import { Popover, NavBar,Icon,Modal,Toast } from 'antd-mobile'
  import RefreshListView, {RefreshState} from 'react-native-refresh-list-view'
  import BlankPage  from '../../components/blankPage'
+ import { themeColor } from '../../theme'
  const Item = Popover.Item
 
  @connect(
@@ -248,9 +249,9 @@ import {
        <View style={{flex:1}}>
         <ScrollableTabView
             style={{flex:1}}
-            tabBarUnderlineStyle={{backgroundColor: '#ffb354', height: 2}}
+            tabBarUnderlineStyle={{backgroundColor: themeColor, height: 2}}
             tabBarInactiveTextColor='mintcream'
-            tabBarActiveTextColor='#ffb354'
+            tabBarActiveTextColor={themeColor}
             tabBarInactiveTextColor='#333'
             tabBarTextStyle={{fontSize:16}}
             ref="scrollableTabView"

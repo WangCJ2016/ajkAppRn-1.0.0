@@ -6,6 +6,7 @@ import {
   StyleSheet
  } from 'react-native'
 import PropTypes from 'prop-types'
+import { themeColor } from '../theme'
 
  class GetVerCode extends React.Component {
    state = { 
@@ -15,7 +16,7 @@ import PropTypes from 'prop-types'
      return (
       <TouchableOpacity 
         style={[styles.verCodeBtn,{
-          backgroundColor: this.props.verCodeBtnDisabled?'#fff':'#ffb354',
+          backgroundColor: this.props.verCodeBtnDisabled?'#fff':themeColor,
         }]}
         onPress={this.props.getVerCode}>
         <Text style={{fontSize:14,color: this.props.verCodeBtnDisabled?'#ccc':'#fff',}}>{this.props.count===60?'获取验证码':this.props.count+'s'}</Text>

@@ -10,7 +10,7 @@ import {
 import { Modal} from 'antd-mobile'
 import { connect } from 'react-redux'
 import { landlordHouseDetail } from '../../reducers/longRent.redux'
-
+import { themeColor } from '../../theme'
 @connect(
    state=>({longRent: state.longRent}),
    {
@@ -118,7 +118,7 @@ import { landlordHouseDetail } from '../../reducers/longRent.redux'
    leftIcon:{
      width: 7,
      height: 19,
-     backgroundColor: '#ffb354'
+     backgroundColor: themeColor
    },
    flex_row_center:{
      flexDirection:'row',

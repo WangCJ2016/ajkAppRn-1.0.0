@@ -5,16 +5,17 @@ import {
   Image,
  } from 'react-native'
  import { connect } from 'react-redux'
- import { consumeRecords,payOrdersSuccess } from '../../reducers/shopcar.redux'
+ import { consumeRecords,consumeHotelsSuccess } from '../../reducers/shopcar.redux'
  import RefreshListView, {RefreshState} from 'react-native-refresh-list-view'
  import ViewUtils from '../../utils/viewUtils'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
+ import BlankPage from '../../components/blankPage'
 
  @InphoneXHoc
  @connect(
   state => ({order: state.order}),
   {
-    consumeRecords,payOrdersSuccess
+    consumeRecords,consumeHotelsSuccess
   }
 )
  class ConsumeRecordsPage extends React.Component {
@@ -31,11 +32,10 @@ import {
   componentDidMount() {
     this.onHeaderRefresh()
   }
-  componentWillUnmount() {
-    this.props.payOrdersSuccess({payOrders:null})
-  }
+  
   renderCell(data) {
     const order = data.item
+    if(!order.hotels) return
     return (
      
        <View key={order.id}>
@@ -53,7 +53,7 @@ import {
    this.props.consumeRecords({pageNo:1},(RefreshState)=>{this.setState({refreshState: RefreshState})})
  }
  onFooterRefresh() {
-   const orders = this.props.order.payOrders
+   const orders = this.props.order.consumeHotels
    if(orders.pageNo + 1 <= orders.totalPages) {
      this.setState({refreshState: RefreshState.FooterRefreshing})
      this.props.consumeRecords({pageNo:orders.pageNo + 1},(RefreshState)=>{this.setState({refreshState: RefreshState})})
@@ -69,9 +69,9 @@ import {
     return (
      <View style={{flex:1}}>
      {
-       this.props.order.payOrders?
+       this.props.order.consumeHotels&&this.props.order.consumeHotels.list.length>0?
        <RefreshListView
-           data={this.props.order.payOrders.list}
+           data={this.props.order.consumeHotels.list}
            keyExtractor={this.keyExtractor}
            renderItem={this.renderCell}
            refreshState={this.state.refreshState}
@@ -82,7 +82,7 @@ import {
            footerRefreshingText= '玩命加载中 >.<'
            footerFailureText = '我擦嘞，居然失败了 =.=!'
            footerNoMoreDataText= '-我是有底线的-'
-       />:null
+       />:<BlankPage></BlankPage>
      }
    </View>
     )

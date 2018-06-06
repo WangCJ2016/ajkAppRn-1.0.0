@@ -10,6 +10,7 @@ import {
  import RefreshListView, {RefreshState} from 'react-native-refresh-list-view'
  import BlankPage from '../../components/blankPage'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
+ import { themeColor } from '../../theme'
 
  @InphoneXHoc
  @connect(
@@ -43,7 +44,7 @@ import {
              <Image source={{uri:order.hotelsx[0].houses[0].picture,width:75,height:60}}></Image>
              <View style={{flex:1,marginLeft:10}}>
                <Text style={{color:'#ababab'}}>下单时间：{order.orderTime}</Text>
-               <Text style={{color:'#ffb354'}}>¥{order.totalFee}</Text>
+               <Text style={{color:themeColor}}>¥{order.totalFee}</Text>
              </View>
          </View>
          }

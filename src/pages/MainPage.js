@@ -25,7 +25,7 @@ import {
  import { isIphoneX } from '../utils/fnUtils'
  import SplashScreen from 'react-native-splash-screen'
  var Geolocation = require('Geolocation');
-
+ import { themeColor } from '../theme'
  
  @connect(
    state=>({main: state.main,map:state.map,user: state.user}),
@@ -39,7 +39,8 @@ import {
       this.state = {
         xTop: new Animated.Value(0.0),
         loadMore: false,
-        netIf: false
+        netIf: true,
+        city: '杭州'
       }
     }
    componentDidMount() {
@@ -164,15 +165,21 @@ import {
     </ScrollView>
    }
    hotCity() {
+     const cities = ['北京','上海','广州','深圳','杭州']
      return (
        <View style={{marginTop: 25,marginLeft:15}}>
          <Text style={{fontSize:20,fontWeight:'bold',color:'#343434'}}>热门城市</Text>
          <View style={{flexDirection:'row',marginTop:12}}>
-           <Text style={{marginRight:10}}>北京</Text>
-           <Text style={{marginRight:10}}>上海</Text>
-           <Text style={{marginRight:10}}>广州</Text>
-           <Text style={{marginRight:10}}>深圳</Text>
-           <Text style={{marginRight:10}}>杭州</Text>
+         {
+           cities.map(city => 
+            <TouchableOpacity 
+              key={city} 
+              onPress={()=>this.setState({city: city})}
+              style={[styles.city,{
+                backgroundColor: this.state.city===city?themeColor:'transparent'
+              }]}><Text>{city}</Text>
+            </TouchableOpacity>)
+         }
          </View>
        </View>
      )
@@ -185,10 +192,10 @@ import {
         <View style={{height:150}} >
           <Image style={styles.banner_image} source={{uri:item.picture}}></Image>
           <View>
-            <Text style={styles.banner_text}><Text style={{color:'#FF7E2D'}}>¥</Text><Text style={{color:'#1C76F9'}}>850</Text><Text>&nbsp;</Text><Text>{item.title}</Text></Text>
+            <Text style={styles.banner_text}><Text style={{color:themeColor}}>¥</Text><Text style={{color:'#1C76F9'}}>850</Text><Text>&nbsp;</Text><Text>{item.title}</Text></Text>
             <View style={{flexDirection:'row',alignItems:'center',marginTop:3}}>
               <Image style={{marginRight:5}} source={require('../assets/images/loc.png')}></Image>
-              <Text>杭州/333评价/<Text style={{color:'#FF7E2D'}}>9.0分</Text></Text>
+              <Text>杭州/333评价/<Text style={{color: themeColor}}>9.0分</Text></Text>
             </View>
           </View>
           
@@ -246,7 +253,7 @@ import {
                     height:30,
                     borderWidth:0.5,
                     borderRadius:3,
-                    borderColor:'#FF7E2D',
+                    borderColor:themeColor,
                     shadowOffset: {width: 0, height: 0},
                     shadowColor: '#ccc',
                     shadowOpacity: 1,
@@ -346,7 +353,7 @@ import {
    },
    fix_top:{
     position:'absolute',
-    height:64,
+    height:isIphoneX()?80:64,
     width:'100%',
     zIndex:1,
     paddingLeft: 15,
@@ -364,6 +371,14 @@ import {
      lineHeight:40,
      height: 40,
      marginTop: isIphoneX()?10:0
+   },
+   city:{
+     paddingLeft:5,
+     paddingRight:5,
+     paddingTop: 2,
+     paddingBottom:2,
+     borderRadius: 5,
+     marginRight:10,
    }
  })
  

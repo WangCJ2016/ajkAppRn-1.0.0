@@ -6,6 +6,7 @@ import {
 	TouchableOpacity,
 	Text
 } from 'react-native';
+import { themeColor } from '../../theme'
 
 export default class Day extends React.Component {
 	render() {
@@ -58,7 +59,7 @@ export default class Day extends React.Component {
 
 
 		const dynamicStyle = {backgroundColor: backColor, width: Math.floor(width/7), height: Math.floor(width/10)};
-		const isToday = status === 'common' && new Date().toDateString() === date.toDateString() ? {borderWidth: 1, borderRadius: 10, borderColor: '#ffb354'} : {}
+		const isToday = status === 'common' && new Date().toDateString() === date.toDateString() ? {borderWidth: 1, borderRadius: 10, borderColor: themeColor} : {}
 		
 		let defaultPrice = this.props.defaultPrice
 		if(this.props.houseCalendar) {

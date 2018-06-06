@@ -11,18 +11,19 @@ import {
   Dimensions
  } from 'react-native'
  import { connect }  from 'react-redux'
- import {shopCarList,shopCardel,houseCheckBox,hotelCheckBox,checkboxAll,checkHouseWhetherReserve } from '../../reducers/shopcar.redux'
+ import {shopCarList,shopCardel,houseCheckBox,checkHouseWhetherReserve } from '../../reducers/shopcar.redux'
  import { List, Checkbox, Flex } from 'antd-mobile'
 //  import { SwipeListView } from 'react-native-swipe-list-view'
  import SwipeList from 'react-native-smooth-swipe-list'
  const CheckboxItem = Checkbox.CheckboxItem;
 const HEIGHT = Dimensions.get('window').height
 import InphoneXHoc from '../../hoc/inphoneXhoc'
+import { themeColor } from '../../theme'
 
  @InphoneXHoc
 @connect(
   state => ({shopcar:state.order,user: state.user}),
-  {shopCarList,shopCardel,houseCheckBox,hotelCheckBox,checkboxAll}
+  {shopCarList,shopCardel,houseCheckBox}
 )
  class ShopCarPage extends React.Component {
   constructor() {
@@ -69,8 +70,8 @@ import InphoneXHoc from '../../hoc/inphoneXhoc'
   }
   renderSectionHeader(data) {
     return (
-      <View key={Object.keys(data)[0]} style={{flexDirection:'row',padding: 10}}>
-        <Checkbox style={{alignItems:'center'}} checked={Object.values(data)[0][0].hotelCheck} onChange={(e)=>this.hotelChange(Object.keys(data)[0])}>
+      <View key={Object.keys(data)[0]} style={{flexDirection:'row',}}>
+        <Checkbox style={{alignItems:'center'}} checked={Object.values(data)[0][0].hotelCheck} onChange={(e)=>this.hotelChange(e,Object.values(data)[0])}>
         <Text style={{marginLeft:15}}>
         {Object.keys(data)[0]}
         </Text>  
@@ -80,13 +81,22 @@ import InphoneXHoc from '../../hoc/inphoneXhoc'
     )
   }
   onChange(e,houseId) {
-      this.props.houseCheckBox(houseId)
+    this.props.houseCheckBox(houseId)
   }
-  hotelChange(hotelName) {
-     this.props.hotelCheckBox(hotelName)
+  hotelChange(e,hotels) {
+    const hotelCheck = e.target.checked
+    hotels.forEach((hotel)=>{
+      if(hotel.checked !== hotelCheck) this.props.houseCheckBox(hotel.houseId)
+    })
   }
   selectAll(e) {
-     this.props.checkboxAll(e.target.checked)
+    const list = this.props.shopcar.shopCarList
+    const allChecked = e.target.checked
+    list.forEach(hotel=>{
+      Object.values(hotel)[0].forEach(house => {
+        if(house.checked !== allChecked) this.props.houseCheckBox(house.houseId)
+      })
+    })
   }
  
   renderItem(data, rowMap) {
@@ -98,7 +108,7 @@ import InphoneXHoc from '../../hoc/inphoneXhoc'
                 <View style={{flex:1,marginLeft:10,justifyContent:'space-between'}}>
                   <Text style={{color:'#ababab'}}>{cart.houseName}</Text>
                   <Text style={{color:'#ababab'}}>{cart.inTime.split(' ')[0]+' '+cart.leaveTime.split(' ')[0]+' 共'+cart.inDays+'晚'}</Text>
-                  <Text style={{color:'#ffb354'}}>¥{cart.price}</Text>
+                  <Text style={{color:themeColor}}>¥{cart.price}</Text>
                 </View>
               </View>
             </CheckboxItem>
@@ -109,7 +119,7 @@ import InphoneXHoc from '../../hoc/inphoneXhoc'
       <TouchableOpacity 
        key={data.id}
        onPress={()=>this.delete(data.id)}
-       style={{height:'100%',backgroundColor: '#ffb354',justifyContent:'center'}}>
+       style={{height:'100%',backgroundColor: themeColor,justifyContent:'center'}}>
                 <Text style={{color:'#fff',textAlign: 'right',fontSize:16,paddingRight:10}}>删除</Text>
        </TouchableOpacity>
     )
@@ -163,7 +173,7 @@ import InphoneXHoc from '../../hoc/inphoneXhoc'
      height:45,
      width:75,
      lineHeight: 45,
-     backgroundColor: '#ffb354',
+     backgroundColor: themeColor,
      textAlign: 'center',
      color: '#FFFFFF'
    }

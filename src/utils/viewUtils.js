@@ -16,6 +16,7 @@ import {
 import { isIphoneX } from '../utils/fnUtils'
 import StarsComponent from '../components/starsComponent'
 import { TransformStatus,auditFailStatus,telephoneFormat,telephoneHidden } from './fnUtils'
+import { themeColor } from '../theme'
 const Item = List.Item;
 const screenWidth =Dimensions.get('window').width
 
@@ -64,7 +65,7 @@ export default class ViewUtils {
             <View style={{justifyContent:'space-around',marginLeft:10,height:90,flex:1}}>
               <Text numberOfLines={1} style={{color:'#ababab'}}>{hotel.name}</Text>
               <Text numberOfLines={1} style={{color:'#ababab'}}>{hotel.address}</Text>
-              <Text numberOfLines={1} style={{color:'#ffb354'}}>¥{hotel.price}</Text>
+              <Text numberOfLines={1} style={{color:themeColor}}>¥{hotel.price}</Text>
             </View>
             <Image style={{tintColor:'#ccc'}} source={require('../assets/images/right_arr_icon.png')}></Image>
           </View>
@@ -83,7 +84,7 @@ export default class ViewUtils {
        {
          collect?
          <TouchableWithoutFeedback onPress={()=>collect()}>
-         <View style={[styles.icon_btn,{backgroundColor: '#ffb354',opacity:1}]}>
+         <View style={[styles.icon_btn,{backgroundColor: themeColor,opacity:1}]}>
          {
            whetherCollect?<Image  source={require('../assets/images/heart_like.png')}></Image>:
            <Image   source={require('../assets/images/heart_icon.png')}></Image>
@@ -93,7 +94,7 @@ export default class ViewUtils {
          :null
        }
         <TouchableWithoutFeedback  onPress={()=>share()}>
-          <View style={[styles.icon_btn,{backgroundColor: '#ffb354',opacity:1,marginLeft:10}]}>
+          <View style={[styles.icon_btn,{backgroundColor: themeColor,opacity:1,marginLeft:10}]}>
           <Image source={require('../assets/images/share_icon.png')}></Image>
           </View>
         </TouchableWithoutFeedback>
@@ -116,7 +117,7 @@ export default class ViewUtils {
        <Image style={styles.list_row_thumb} source={{uri:data.picture,width:thumbWidth,height:thumbHeight}}></Image>
        <View style={styles.list_row_content}>
          <Text style={{color:'#ababab'}}>{data.name}</Text>
-         <Text style={{color:'#ffb354',marginTop:10}}>¥{data.defaultPrice}</Text>
+         <Text style={{color:themeColor,marginTop:10}}>¥{data.defaultPrice}</Text>
        </View>
        <Image source={require('../assets/images/right_arr_icon.png')}></Image>
       </TouchableOpacity>
@@ -132,7 +133,7 @@ export default class ViewUtils {
         <Image source={{uri:image,width:75,height:60}}></Image>
         <View style={{flex:1,marginLeft:10,height:60}}>
           <Text style={{color:'#ababab'}}>{c1}</Text>
-          <Text style={{color:'#ffb354'}}>{c2}</Text>
+          <Text style={{color:themeColor}}>{c2}</Text>
         </View>
       </View>
   
@@ -146,7 +147,7 @@ export default class ViewUtils {
             <View style={{marginLeft:10,flex:1,justifyContent:'space-between'}}>
               <Text numberOfLines={1} style={{color:'#ababab'}}>{p1}</Text>
               <Text numberOfLines={1} style={{color:'#ababab'}}>{p2}</Text>
-              <Text numberOfLines={1} style={{color:'#ffb354'}}>{p3}</Text>
+              <Text numberOfLines={1} style={{color:themeColor}}>{p3}</Text>
             </View>
           </View>
        </TouchableHighlight>
@@ -320,8 +321,8 @@ export default class ViewUtils {
             }
             </Text>
             <TouchableOpacity onPress={()=>handleDel(data)}>
-              <View style={{width: 50,height:24,borderColor:'#ffb354',borderWidth: 0.5,borderRadius:12.5,alignItems:'center',justifyContent:'center'}}>
-                <Text style={{color:'#ffb354'}}>删除</Text>
+              <View style={{width: 50,height:24,borderColor:themeColor,borderWidth: 0.5,borderRadius:12.5,alignItems:'center',justifyContent:'center'}}>
+                <Text style={{color:themeColor}}>删除</Text>
               </View>
             </TouchableOpacity>
         </View>
@@ -369,7 +370,7 @@ const styles = StyleSheet.create({
   },
   item_price: {
     fontSize: 18,
-    color: '#ffb354'
+    color: themeColor
   },
   list_row:{
     height:160,

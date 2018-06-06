@@ -15,7 +15,7 @@ import {
  import { connect } from 'react-redux'
  import { imgUpload,dataSuccess,becomLandlord } from '../../reducers/longRent.redux'
  import ImageActionSheetHoc from '../../hoc/imageActionSheetHoc'
-
+ import { themeColor } from '../../theme'
  const Item = List.Item
  
  @connect(
@@ -40,8 +40,8 @@ import {
     headerRight: (  
         <TouchableOpacity onPress={()=>navigation.state.params.handleNext()}>
           <View style={{flexDirection:'row',alignItems:'center',marginRight:10}}>
-            <Image style={{tintColor:'#ffb354'}} source={require('../../assets/images/next_icon.png')}></Image>
-            <Text style={{color:'#ffb354'}}>下一步</Text>
+            <Image style={{tintColor:themeColor}} source={require('../../assets/images/next_icon.png')}></Image>
+            <Text style={{color:themeColor}}>下一步</Text>
           </View>
         </TouchableOpacity>
     ),  

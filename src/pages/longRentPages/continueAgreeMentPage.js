@@ -10,7 +10,7 @@ import {
  import { dateFormat } from '../../utils/fnUtils'
  import { connect } from 'react-redux'
 import { renewProtocol,renewContract } from '../../reducers/longRent-hasRent.redux'
-
+import { themeColor } from '../../theme'
 @connect(
   state=>({longRentHasRent: state.longRentHasRent}),
   {
@@ -30,7 +30,7 @@ import { renewProtocol,renewContract } from '../../reducers/longRent-hasRent.red
     headerRight: (  
         <TouchableOpacity onPress={()=>navigation.state.params.handleSubmit()}>
           <View style={{flexDirection:'row',alignItems:'center',marginRight:10}}>
-            <Text style={{color:'#ffb354',fontSize:16}}>提交</Text>
+            <Text style={{color:themeColor,fontSize:16}}>提交</Text>
           </View>
         </TouchableOpacity>
      ),  

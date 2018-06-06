@@ -10,6 +10,7 @@ import {
  } from 'react-native'
  import MultiSlider from '@ptomasroos/react-native-multi-slider'
  const WIDTH = Dimensions.get('window').width
+ import { themeColor } from '../../theme'
 
  class HotelModal extends React.Component {
    constructor() {
@@ -25,8 +26,8 @@ import {
       const ifSelect = this.state.rentType === type.value
       return ( <TouchableOpacity key={type.value}  onPress={()=>this.setState({rentType:type.value})}>
        <View style={{height:60,justifyContent:'space-between',alignItems:'center',marginRight:20}}>
-         <Image style={{tintColor:ifSelect?'#ffb354':'#555'}} source={type.img}></Image>
-         <Text style={{color:'#555',color:ifSelect?'#ffb354':'#555'}}>{type.label}</Text>
+         <Image style={{tintColor:ifSelect?themeColor:'#555'}} source={type.img}></Image>
+         <Text style={{color:'#555',color:ifSelect?themeColor:'#555'}}>{type.label}</Text>
        </View>
        </TouchableOpacity>
         )
@@ -39,7 +40,7 @@ import {
        return (<TouchableOpacity 
              key={index} 
              onPress={()=>this.setState({layout:item})}
-             style={{width:70,height:30,backgroundColor:ifSelect?'#ffb354':'#fff',borderColor:ifSelect?'#fff':'#d8d8d8',borderWidth:0.5,marginRight:10}}>
+             style={{width:70,height:30,backgroundColor:ifSelect?themeColor:'#fff',borderColor:ifSelect?'#fff':'#d8d8d8',borderWidth:0.5,marginRight:10}}>
             <Text style={{fontSize:15,color:ifSelect?'#fff':'#555',lineHeight:30,textAlign:'center'}}>{item}</Text>
         </TouchableOpacity>)
      })
@@ -51,7 +52,7 @@ import {
       return (<TouchableOpacity 
             key={index} 
             onPress={()=>this.setState({traffic:item})}
-            style={{width:70,height:30,backgroundColor:ifSelect?'#ffb354':'#fff',borderColor:ifSelect?'#fff':'#d8d8d8',borderWidth:0.5,marginRight:10}}>
+            style={{width:70,height:30,backgroundColor:ifSelect?themeColor:'#fff',borderColor:ifSelect?'#fff':'#d8d8d8',borderWidth:0.5,marginRight:10}}>
            <Text style={{fontSize:15,color:ifSelect?'#fff':'#555',lineHeight:30,textAlign:'center'}}>{item}</Text>
        </TouchableOpacity>)
     })
@@ -63,7 +64,7 @@ import {
       return (<TouchableOpacity 
             key={index} 
             onPress={()=>this.setState({brand:item})}
-            style={{width:70,height:30,backgroundColor:ifSelect?'#ffb354':'#fff',borderColor:ifSelect?'#fff':'#d8d8d8',borderWidth:0.5,marginRight:10}}>
+            style={{width:70,height:30,backgroundColor:ifSelect?themeColor:'#fff',borderColor:ifSelect?'#fff':'#d8d8d8',borderWidth:0.5,marginRight:10}}>
            <Text style={{fontSize:15,color:ifSelect?'#fff':'#555',lineHeight:30,textAlign:'center'}}>{item}</Text>
        </TouchableOpacity>)
     })
@@ -75,7 +76,7 @@ import {
       return (<TouchableOpacity 
             key={index} 
             onPress={()=>this.setState({bed:item})}
-            style={{width:70,height:30,backgroundColor:ifSelect?'#ffb354':'#fff',borderColor:ifSelect?'#fff':'#d8d8d8',borderWidth:0.5,marginRight:10}}>
+            style={{width:70,height:30,backgroundColor:ifSelect?themeColor:'#fff',borderColor:ifSelect?'#fff':'#d8d8d8',borderWidth:0.5,marginRight:10}}>
            <Text style={{fontSize:15,color:ifSelect?'#fff':'#555',lineHeight:30,textAlign:'center'}}>{item}</Text>
        </TouchableOpacity>)
     })
@@ -94,7 +95,7 @@ import {
       <View style={{flex:1,backgroundColor: 'rgba(0,0,0,.5)',justifyContent:'space-between'}}>
        <Text style={{flex:1}}  onPress={()=>this.props.conditionModalVisibleHandle()}></Text>
        <View style={{backgroundColor:'#fff',paddingTop:10,paddingLeft:15,paddingRight:15}}>
-         <Text style={styles.moreModalTitle}>价格范围<Text style={{paddingLeft:20,color:'#ffb354'}}>¥{this.state.priceRange[0]}以内</Text></Text>
+         <Text style={styles.moreModalTitle}>价格范围<Text style={{paddingLeft:20,color:themeColor}}>¥{this.state.priceRange[0]}以内</Text></Text>
          <MultiSlider
            values={this.state.priceRange}
            allowOverlap
@@ -110,7 +111,7 @@ import {
              backgroundColor: '#e1e1e1',
            }}
            selectedStyle={{
-             backgroundColor: '#ffb354',
+             backgroundColor: themeColor,
            }}
            touchDimensions={{
              height: 40,
@@ -120,7 +121,7 @@ import {
            }}
            markerOffsetY={2}
            onValuesChangeFinish={this.onSliderValuesChangeFinish}
-           customMarker={()=><View style={{width:20,height:20,borderRadius:10,borderColor:'#ffb354',borderWidth:1,backgroundColor:'#fff'}}></View>}
+           customMarker={()=><View style={{width:20,height:20,borderRadius:10,borderColor:themeColor,borderWidth:1,backgroundColor:'#fff'}}></View>}
          />
          <View style={{height:0.5,backgroundColor:'#d8d8d8'}}></View>
          <Text style={styles.moreModalTitle}>出租类型</Text>
@@ -154,7 +155,7 @@ import {
       <View style={{flex:1,backgroundColor: 'rgba(0,0,0,.5)',justifyContent:'space-between'}}>
        <Text style={{flex:1}} onPress={()=>this.props.conditionModalVisibleHandle()}></Text>
        <View style={{backgroundColor:'#fff',paddingTop:10,paddingLeft:15,paddingRight:15}}>
-         <Text style={styles.moreModalTitle}>价格范围<Text style={{paddingLeft:20,color:'#ffb354'}}>¥{this.state.priceRange[0]}以内</Text></Text>
+         <Text style={styles.moreModalTitle}>价格范围<Text style={{paddingLeft:20,color:themeColor}}>¥{this.state.priceRange[0]}以内</Text></Text>
          <MultiSlider
            values={this.state.priceRange}
            min={50}
@@ -168,7 +169,7 @@ import {
              backgroundColor: '#e1e1e1',
            }}
            selectedStyle={{
-             backgroundColor: '#ffb354',
+             backgroundColor: themeColor,
            }}
            touchDimensions={{
              height: 40,
@@ -178,7 +179,7 @@ import {
            }}
            markerOffsetY={2}
            onValuesChangeFinish={this.onSliderValuesChangeFinish}
-           customMarker={()=><View style={{width:20,height:20,borderRadius:10,borderColor:'#ffb354',borderWidth:1,backgroundColor:'#fff'}}></View>}
+           customMarker={()=><View style={{width:20,height:20,borderRadius:10,borderColor:themeColor,borderWidth:1,backgroundColor:'#fff'}}></View>}
          />
          <View style={{height:0.5,backgroundColor:'#d8d8d8'}}></View>
          <Text style={styles.moreModalTitle}>品牌</Text>

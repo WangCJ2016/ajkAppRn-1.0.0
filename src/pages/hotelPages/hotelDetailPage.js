@@ -21,7 +21,7 @@ import StarsComponent from '../../components/starsComponent'
 import ViewUtils from '../../utils/viewUtils'
 import * as wechat from 'react-native-wechat'
 import { isIphoneX } from '../../utils/fnUtils'
- 
+import { themeColor } from '../../theme'
 
 const BUTTONS = [
   '微信好友',
@@ -148,9 +148,9 @@ class HotelDetailPage extends Component {
             
               <ScrollableTabView
                  style={{flex:1}}
-                  tabBarUnderlineStyle={{backgroundColor: '#ffb354', height: 2}}
+                  tabBarUnderlineStyle={{backgroundColor: themeColor, height: 2}}
                   tabBarInactiveTextColor='mintcream'
-                  tabBarActiveTextColor='#ffb354'
+                  tabBarActiveTextColor={themeColor}
                   tabBarInactiveTextColor='#333'
                   tabBarTextStyle={{fontSize:16}}
                   ref="scrollableTabView"

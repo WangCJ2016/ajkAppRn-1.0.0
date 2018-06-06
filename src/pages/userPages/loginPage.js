@@ -8,6 +8,7 @@ import {
  import { connect } from 'react-redux'
 import {login} from '../../reducers/user.redux'
 import InphoneXHoc from '../../hoc/inphoneXhoc'
+import { themeColor } from '../../theme'
 
  @InphoneXHoc
 @connect(
@@ -87,7 +88,7 @@ import InphoneXHoc from '../../hoc/inphoneXhoc'
         <View style={{padding:10,flexDirection:'row',justifyContent:'space-between'}}>
             <Text 
             onPress={()=>this.props.navigation.navigate('Register')}
-            style={{color:'#ffb354'}}>立即注册</Text>
+            style={{color:themeColor}}>立即注册</Text>
             <Text onPress={()=>this.props.navigation.navigate('ForgetPsw')}>忘记密码？</Text>
         </View>
        </View>

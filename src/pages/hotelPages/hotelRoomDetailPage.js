@@ -14,6 +14,7 @@ import { addshopCar } from '../../reducers/shopcar.redux'
 import ViewUtils from '../../utils/viewUtils'
 import { dateFormat } from '../../utils/fnUtils'
 import { isIphoneX } from '../../utils/fnUtils'
+import { themeColor } from '../../theme'
 
 const _isIphoneX = isIphoneX()
  @connect(
@@ -42,7 +43,7 @@ const _isIphoneX = isIphoneX()
         <Text style={styles.title}>房间详情</Text>
         <View style={styles.item}>
           <Text style={styles.text}>可租房态</Text>
-          <Text style={[styles.text,{color: '#ffb354'}]} onPress={()=>this.props.navigation.navigate('RoomDateSelect',{houseId:roomDetail.id,defaultPrice:roomDetail.defaultPrice})}>查看日历</Text>
+          <Text style={[styles.text,{color: themeColor}]} onPress={()=>this.props.navigation.navigate('RoomDateSelect',{houseId:roomDetail.id,defaultPrice:roomDetail.defaultPrice})}>查看日历</Text>
         </View>
         <View style={styles.item}>
           <Text style={styles.text}>押金</Text>

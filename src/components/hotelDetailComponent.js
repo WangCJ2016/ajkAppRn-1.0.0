@@ -11,6 +11,7 @@ import {
  import RectIconCom from '../components/rectIconCom'
  import { withNavigation} from 'react-navigation'
  const HEIGHT =  Dimensions.get('window').height
+ import { themeColor } from '../theme'
 
  @withNavigation
  class HotelDeitalCom extends React.Component {
@@ -21,13 +22,13 @@ import {
        <View style={{padding:10}} > 
          <View style={{flexDirection:'row',justifyContent:'space-between'}}>
            <View style={{flexDirection:'row'}}>
-           <RectIconCom width={3} height={14} backgroundColor={'#ffb354'} ></RectIconCom>
+           <RectIconCom width={3} height={14} backgroundColor={themeColor} ></RectIconCom>
             <Text>
               酒店简介
             </Text>
            </View> 
             <View>
-              <Text style={{color:'#ffb354'}} 
+              <Text style={{color:themeColor}} 
               onPress={()=>this.props.navigation.navigate('HotelInfo',{telephone:hotelDetail.telephone,profiles:hotelDetail.profiles})}>查看全部</Text>
             </View>
          </View>
@@ -41,7 +42,7 @@ import {
       <View style={{padding:10}}> 
         <View style={{flexDirection:'row'}}>
           <View style={{flexDirection:'row'}}>
-          <RectIconCom width={3} height={14} backgroundColor={'#ffb354'} ></RectIconCom>
+          <RectIconCom width={3} height={14} backgroundColor={themeColor} ></RectIconCom>
           <Text>
             酒店设施
           </Text>
@@ -104,12 +105,12 @@ import {
     return (
       <View style={{padding:10}}>
         <View style={{flexDirection:'row'}}>
-          <RectIconCom width={3} height={14} backgroundColor={'#ffb354'} ></RectIconCom>
+          <RectIconCom width={3} height={14} backgroundColor={themeColor} ></RectIconCom>
           <Text>酒店规则</Text>
         </View>
         <View style={styles.rule}>
           <Text style={styles.text_bg}>押金</Text>
-          <Text style={{color: '#ffb354'}}>325元</Text>
+          <Text style={{color: themeColor}}>325元</Text>
         </View>
         <View style={{marginTop:10}}>
           <Text style={styles.text_bg}>退款</Text>

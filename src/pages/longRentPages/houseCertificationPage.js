@@ -15,7 +15,8 @@ import {
  import { connect } from 'react-redux'
  import { imgUpload } from '../../reducers/longRent.redux'
  import ImageActionSheetHoc from '../../hoc/imageActionSheetHoc'
- 
+ import { themeColor } from '../../theme'
+
  const Item = List.Item
  const directionStyles = [
   [
@@ -45,8 +46,8 @@ class HouseCertificationPage extends React.Component {
     headerRight: (  
         <TouchableOpacity onPress={()=>navigation.state.params.submit()}>
           <View style={{flexDirection:'row',alignItems:'center',marginRight:10}}>
-            <Image style={{tintColor:'#ffb354'}} source={require('../../assets/images/next_icon.png')}></Image>
-            <Text style={{color:'#ffb354'}}>下一步</Text>
+            <Image style={{tintColor:themeColor}} source={require('../../assets/images/next_icon.png')}></Image>
+            <Text style={{color:themeColor}}>下一步</Text>
           </View>
         </TouchableOpacity>
     ),  

@@ -20,9 +20,7 @@ import {
  import { connect } from 'react-redux'
  import { dataSuccess,endAgreementDevices } from '../../reducers/longRent.redux'
  const HEIGHT = Dimensions.get('window').height
- //import InphoneXHoc from '../../hoc/inphoneXhoc'
- 
- //@InphoneXHoc
+ import { themeColor } from '../../theme'
  @connect(
    state => ({longRent: state.longRent}),
    {
@@ -76,8 +74,8 @@ import {
       headerRight: (  
           <TouchableOpacity onPress={()=>navigation.state.params.handleNext()}>
             <View style={{flexDirection:'row',alignItems:'center',marginRight:10}}>
-              <Image style={{tintColor:'#ffb354'}} source={require('../../assets/images/next_icon.png')}></Image>
-              <Text style={{color:'#ffb354'}}>下一步</Text>
+              <Image style={{tintColor:themeColor}} source={require('../../assets/images/next_icon.png')}></Image>
+              <Text style={{color:themeColor}}>下一步</Text>
             </View>
           </TouchableOpacity>
       ),  
@@ -232,13 +230,13 @@ import {
                     <View style={styles.potWrap}>
                       <View style={styles.pot}></View> 
                     </View> 
-                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:'#ffb354'}}>窗帘电机</Text>与您一个窗户上的窗帘相关联，窗户上为一个窗帘，电机为1个；窗户上为两个窗帘，电机为2个</Text> 
+                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:themeColor}}>窗帘电机</Text>与您一个窗户上的窗帘相关联，窗户上为一个窗帘，电机为1个；窗户上为两个窗帘，电机为2个</Text> 
                   </View>  
                   <View style={{flexDirection:'row',marginTop:10}}>
                     <View style={styles.potWrap}>
                       <View style={styles.pot}></View> 
                     </View> 
-                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:'#ffb354'}}>电动窗帘轨道</Text>为您窗帘的米数，不足一米按照一米去计算，如窗帘为4.6米，实际需要5米</Text> 
+                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:themeColor}}>电动窗帘轨道</Text>为您窗帘的米数，不足一米按照一米去计算，如窗帘为4.6米，实际需要5米</Text> 
                   </View>   
                 </View>  
               )}
@@ -264,13 +262,13 @@ import {
                     <View style={styles.potWrap}>
                       <View style={styles.pot}></View> 
                     </View> 
-                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:'#ffb354'}}>空调面板</Text>为添加空调必备的设备，一个空调需要一个空调面板</Text> 
+                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:themeColor}}>空调面板</Text>为添加空调必备的设备，一个空调需要一个空调面板</Text> 
                   </View>  
                   <View style={{flexDirection:'row',marginTop:10}}>
                       <View style={styles.potWrap}>
                         <View style={styles.pot}></View> 
                       </View> 
-                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:'#ffb354'}}>360度红外转发器</Text>一个房间需要安装一个，可以控制这个房间的所有设备，包括电视，空调</Text> 
+                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:themeColor}}>360度红外转发器</Text>一个房间需要安装一个，可以控制这个房间的所有设备，包括电视，空调</Text> 
                   </View>   
                 </View>  
               )}
@@ -296,13 +294,13 @@ import {
                     <View style={styles.potWrap}>
                       <View style={styles.pot}></View> 
                     </View> 
-                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:'#ffb354'}}>电视面板</Text>为智能电视必备设备，一个电视需要一个电视面板</Text> 
+                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:themeColor}}>电视面板</Text>为智能电视必备设备，一个电视需要一个电视面板</Text> 
                   </View>  
                   <View style={{flexDirection:'row',marginTop:10}}>
                       <View style={styles.potWrap}>
                         <View style={styles.pot}></View> 
                       </View> 
-                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:'#ffb354'}}>360度红外转发器</Text>一个房间需要安装一个，可以控制这个房间的所有设备，包括电视，空调</Text> 
+                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:themeColor}}>360度红外转发器</Text>一个房间需要安装一个，可以控制这个房间的所有设备，包括电视，空调</Text> 
                   </View>   
                 </View>  
               )}
@@ -328,13 +326,13 @@ import {
                     <View style={styles.potWrap}>
                       <View style={styles.pot}></View> 
                     </View> 
-                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:'#ffb354'}}>智能开关面板</Text>为智能灯必备设备，一个房间需要一个开关面板</Text> 
+                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:themeColor}}>智能开关面板</Text>为智能灯必备设备，一个房间需要一个开关面板</Text> 
                   </View>  
                   <View style={{flexDirection:'row',marginTop:10}}>
                       <View style={styles.potWrap}>
                         <View style={styles.pot}></View> 
                       </View> 
-                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:'#ffb354'}}>红外人体感应器</Text>为在红外人体感应器感应到有人的状态下，自动开启灯光，检测到无人，在指定时间内自动关闭，一个房间需要一个红外人体感应</Text> 
+                    <Text style={[styles.content_text,{fontSize:15,marginLeft:10}]}><Text style={{color:themeColor}}>红外人体感应器</Text>为在红外人体感应器感应到有人的状态下，自动开启灯光，检测到无人，在指定时间内自动关闭，一个房间需要一个红外人体感应</Text> 
                   </View>   
                 </View>  
               )}

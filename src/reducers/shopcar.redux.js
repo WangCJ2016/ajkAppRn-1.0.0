@@ -13,8 +13,6 @@ const initialState = {
 const DATASUCCESS = '[shopcar] DATASUCCESS'
 const DELSUCCESS = '[shopcar] DELSUCCESS'
 const CHECKBOX = '[shopcar] CHECKBOX'
-const HOTELCHECKBOX = '[shopcar] HOTELCHECKBOX'
-const CHECKBOXALL = '[shopcar] CHECKBOXALL'
 const ORDERSUCCESS = '[shopcar] ORDERSUCCESS'
 
 export function order(state=initialState,action) {
@@ -27,12 +25,6 @@ export function order(state=initialState,action) {
     }
     case CHECKBOX: {
       return {...state,...checkbox(state,action.payload)}
-    }
-    case HOTELCHECKBOX: {
-      return {...state,...hotelCheckbox(state,action.payload)}
-    }
-    case CHECKBOXALL: {
-      return {...state,...checkboxAllHandle(state,action.payload)}
     }
     case ORDERSUCCESS: {
       return orderPagesHander(state, action.payload)
@@ -115,18 +107,6 @@ export function houseCheckBox(id) {
   return {
     type: CHECKBOX,
     payload: id
-  }
-}
-export function hotelCheckBox(name) {
-  return {
-    type: HOTELCHECKBOX,
-    payload: name
-  }
-}
-export function checkboxAll(checked) {
-  return {
-    type: CHECKBOXALL,
-    payload: checked
   }
 }
 
@@ -217,7 +197,7 @@ export function payOrders(info,cb) {
             dispatch(payOrdersSuccess({payOrders: {pageNo: res.data.pageNo,totalPages: res.data.totalPages,list: res.data.result}}))
             cb?cb(RefreshState.Idle):null
           } else{
-            cb?b(RefreshState.Failure):null
+            cb?cb(RefreshState.Failure):null
           } 
       })
   }
@@ -252,7 +232,7 @@ export function orderBeComment(info,cb) {
           cb?cb(RefreshState.Idle):null
           dispatch(payOrdersSuccess({commentHotels: {pageNo: res.data.pageNo,totalPages: res.data.totalPages,list: res.data.result}}))
           } else{
-            cb?b(RefreshState.Failure):null
+            cb?cb(RefreshState.Failure):null
           } 
       })
   }
@@ -296,7 +276,7 @@ export function endOrders(info,cb) {
             }
             cb?cb(RefreshState.Idle):null
           } else{
-            cb?b(RefreshState.Failure):null
+            cb?cb(RefreshState.Failure):null
           } 
       })
   }
@@ -313,10 +293,10 @@ export function consumeRecords(info,cb) {
       .then(res => {
        
         if (res.status === 200 && res.data.success) {
-            dispatch(payOrdersSuccess({commentHotels: {pageNo: res.data.pageNo,totalPages: res.data.totalPages,list: res.data.result}}))
+            dispatch(payOrdersSuccess({consumeHotels: {pageNo: res.data.pageNo,totalPages: res.data.totalPages,list: res.data.result}}))
             cb?cb(RefreshState.Idle):null
           } else{
-            cb?b(RefreshState.Failure):null
+            cb?cb(RefreshState.Failure):null
           } 
       })
   }
@@ -333,53 +313,21 @@ function del(state,id) {
 }
 
 function checkbox(state,id) {
- const lists =  state.shopCarList.map(hotel => {
+   const lists =  state.shopCarList.map(hotel => {
     return {
       [Object.keys(hotel)[0]]: Object.values(hotel)[0].map(house => {
       if(house.houseId === id) {
-        const checked = house.checked?!house.checked:true
+        const checked = house.checked?false:true
         return {...house,checked:checked}
       }else{
         return house
       }
     })}
   })
+  
   return checkboxlasthandel(lists)
 }
 
-function hotelCheckbox(state, name) {
-  const lists = state.shopCarList.map(hotel => {
-    if(hotel.hotelName === name) {
-      const checked = hotel.checked?!hotel.checked:true
-      const carts = hotel.carts.map(house => ({...house,checked:checked}))
-      return {...hotel, carts: carts,checked:checked}
-    }else{
-      return hotel
-    }
-    return {...hotel,carts: hotel.carts.map(house => {
-      if(house.houseId === id) {
-        const checked = house.checked?!house.checked:true
-        return {...house,checked:checked}
-      }else{
-        return house
-      }
-    })}
-  })
-  return checkboxlasthandel(lists)
-}
-
-function checkboxAllHandle(state, checked) {
-  const lists = state.shopCarList.map(hotel => {
-    return {[Object.keys(hotel)[0]]:  Object.values(hotel)[0].map((house,index) => {
-      if(index===0){
-        house.hotelCheck = true
-      }
-      house.checked = true
-      return house
-    })}
-  })
-  return checkboxlasthandel(lists)
-}
 
 function checkboxlasthandel(list) {
   let allcheck = true

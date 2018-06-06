@@ -10,6 +10,7 @@ import {
  } from 'react-native'
  import ImageSlider from 'react-native-image-slider'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
+ import { themeColor } from '../../theme'
 
  @InphoneXHoc
  class HotelPicPage extends React.Component {
@@ -32,7 +33,7 @@ import {
      return arr.map((type,index) => {
       const length =  picArr.filter(arr=>arr.type === index-1).length===1?picArr.filter(arr=>arr.type === index-1)[0].pictures.split(',').length:0
       return (
-        <View key={type} style={[styles.view,{backgroundColor: this.state.selectType===index?'#ffb354':"#fff"}]}>
+        <View key={type} style={[styles.view,{backgroundColor: this.state.selectType===index?themeColor:"#fff"}]}>
           <Text 
           onPress={()=>this.setState({selectType:index})}
           style={[styles.text,{color:this.state.selectType===index?'#fff':"#616161"}]}>{type}({index===0?allPicLength:length})</Text>

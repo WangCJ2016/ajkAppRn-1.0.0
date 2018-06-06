@@ -11,7 +11,7 @@ import {
  import ViewUtils from '../../utils/viewUtils'
 const ITEM_HEIGHT = 40
 import InphoneXHoc from '../../hoc/inphoneXhoc'
-
+import { themeColor } from '../../theme'
  @InphoneXHoc
 @connect(
   state=>({map:state.map}),
@@ -66,7 +66,7 @@ import InphoneXHoc from '../../hoc/inphoneXhoc'
          <Text 
          style={[{textAlign: 'center',lineHeight:40},
          {backgroundColor: this.state.type===type?'#fff':'transparent'},
-         {color:this.state.type===type?'#ffb354':'#333'}]} onPress={()=>this.typeClick(type)}>{type}</Text>
+         {color:this.state.type===type?themeColor:'#333'}]} onPress={()=>this.typeClick(type)}>{type}</Text>
        </View>
      ))
    }

@@ -10,6 +10,7 @@ import {
  import { addPowerWarm } from '../../reducers/longRent-hasRent.redux'
  import { createForm } from 'rc-form'
  import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+ import { themeColor } from '../../theme'
 
  const RadioItem = Radio.RadioItem
  const data = [
@@ -41,7 +42,7 @@ import {
     headerRight: (  
       <TouchableOpacity onPress={()=>navigation.state.params.addPowerwarm()}> 
         <View style={{marginRight:10}}>
-           <Text style={{color:'#ffb354'}}>添加</Text>
+           <Text style={{color:themeColor}}>添加</Text>
         </View>
       </TouchableOpacity>   
         

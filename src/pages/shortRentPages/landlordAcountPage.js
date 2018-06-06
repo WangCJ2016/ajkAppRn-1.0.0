@@ -16,6 +16,7 @@ import { monthIncome,dayIncome } from '../../reducers/shortRent.redux'
 import { dateFormat } from '../../utils/fnUtils'
 import viewUtils from '../../utils/viewUtils'
 import Modal from "react-native-modal"
+import { themeColor } from '../../theme'
 const ITEM_HEIGHT = 117
 
 @connect(
@@ -83,8 +84,8 @@ const ITEM_HEIGHT = 117
      const year = new Date().getFullYear()
      const yearArr = [year-1,year]
      return yearArr.map(year=>(
-      <TouchableOpacity key={year} onPress={()=>this.setState({selectYear:year})} style={[styles.year_btn,{backgroundColor:this.state.selectYear===year?'#ffb354':'#fff'}]}>
-        <Text style={[styles.text,{color:this.state.selectYear===year?'#fff':'#ffb354'}]}>{year}</Text>
+      <TouchableOpacity key={year} onPress={()=>this.setState({selectYear:year})} style={[styles.year_btn,{backgroundColor:this.state.selectYear===year?themeColor:'#fff'}]}>
+        <Text style={[styles.text,{color:this.state.selectYear===year?'#fff':themeColor}]}>{year}</Text>
       </TouchableOpacity>
      ))
    }
@@ -99,8 +100,8 @@ const ITEM_HEIGHT = 117
      let monthEle = []
      for(let i = 0;i<=monthNum;i++) {
       monthEle.push((
-        <TouchableOpacity key={i} onPress={()=>{this.setState({selectMonth:i+1})}} style={[styles.year_btn,{backgroundColor:this.state.selectMonth===i+1?'#ffb354':'#fff'}]}>
-          <Text style={[styles.text,{color:this.state.selectMonth===i+1?'#fff':'#ffb354'}]}>{i+1}</Text>
+        <TouchableOpacity key={i} onPress={()=>{this.setState({selectMonth:i+1})}} style={[styles.year_btn,{backgroundColor:this.state.selectMonth===i+1?themeColor:'#fff'}]}>
+          <Text style={[styles.text,{color:this.state.selectMonth===i+1?'#fff':themeColor}]}>{i+1}</Text>
         </TouchableOpacity>
       ))
      }
@@ -116,9 +117,9 @@ const ITEM_HEIGHT = 117
        <View style={{flex:1}}>
           <ScrollableTabView
               style={{flex:1}}
-              tabBarUnderlineStyle={{backgroundColor: '#ffb354', height: 2}}
+              tabBarUnderlineStyle={{backgroundColor: themeColor, height: 2}}
               tabBarInactiveTextColor='mintcream'
-              tabBarActiveTextColor='#ffb354'
+              tabBarActiveTextColor={themeColor}
               tabBarInactiveTextColor='#333'
               tabBarTextStyle={{fontSize:16}}
               ref="scrollableTabView"
@@ -214,7 +215,7 @@ const ITEM_HEIGHT = 117
     marginTop: 5
   },
   text:{
-    color: '#ffb354',
+    color: themeColor,
     textAlign:'center',
     fontSize: 16
   }

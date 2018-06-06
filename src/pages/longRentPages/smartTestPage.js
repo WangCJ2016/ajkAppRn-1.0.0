@@ -10,7 +10,8 @@ import {
  import { powerRelayList,powerRelayControl,currentPower,historyPower,warmPower,addPowerWarm,modifyPowerWarm,powerRecord } from '../../reducers/longRent-hasRent.redux'
  import { connect } from 'react-redux'
  import InphoneXHoc from '../../hoc/inphoneXhoc'
- 
+ import { themeColor } from '../../theme'
+
  @InphoneXHoc
  @connect(
    state=>({longRentHasRent: state.longRentHasRent,longRent:state.longRent}),
@@ -32,9 +33,9 @@ import {
      return (
        <ScrollableTabView
           style={{flex:1}}
-          tabBarUnderlineStyle={{backgroundColor: '#ffb354', height: 2}}
+          tabBarUnderlineStyle={{backgroundColor: themeColor, height: 2}}
           tabBarInactiveTextColor='mintcream'
-          tabBarActiveTextColor='#ffb354'
+          tabBarActiveTextColor={themeColor}
           tabBarInactiveTextColor='#333'
           tabBarTextStyle={{fontSize:16}}
           ref="scrollableTabView"

@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Switch
  } from 'react-native'
-
+import { themeColor } from '../../theme'
 
  class FarCtrl extends React.Component {
   constructor() {
@@ -20,7 +20,7 @@ import {
         <Text style={styles.tableText}>{device.place}</Text>
         <Text style={[styles.tableText,{color:device.arcCount<8?'#555':'#f2080d'}]}>{device.arcCount<8?'正常':'警告'}</Text>
         <View style={{flex:1,alignItems:'center'}}>
-          <Switch value={device.status===1?true:false}  onValueChange={e=>this.swtichCtrl(e,device)} onTintColor='#ffb354'></Switch>
+          <Switch value={device.status===1?true:false}  onValueChange={e=>this.swtichCtrl(e,device)} onTintColor={themeColor}></Switch>
         </View>
       </View>
     ))

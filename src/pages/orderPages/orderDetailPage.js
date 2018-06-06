@@ -13,7 +13,7 @@ import { connect } from 'react-redux'
 import { checkHouseWhetherReserve,submitOrder } from '../../reducers/shopcar.redux'
 import ParallaxScrollView from 'react-native-parallax-scroll-view'
 import InphoneXHoc from '../../hoc/inphoneXhoc'
-
+import { themeColor } from '../../theme'
 
 @connect(
   state => ({shopcar: state.order}),
@@ -149,7 +149,7 @@ import InphoneXHoc from '../../hoc/inphoneXhoc'
             <View style={styles.pay_wrap}>
                 <View style={{flexDirection:'row',alignItems:'center',marginLeft:10}}>
                   <Text>合计</Text>
-                  <Text style={{color:'#ffb354'}}>¥{this.moneyTotal()}</Text>
+                  <Text style={{color:themeColor}}>¥{this.moneyTotal()}</Text>
                 </View>
                 <TouchableHighlight onPress={this.goPay}>
                   <Text style={styles.pay_btn}>去支付</Text>
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
   pay_btn:{
     width:75,
     height:45,
-    backgroundColor: '#ffb354',
+    backgroundColor: themeColor,
     color:'#fff',
     textAlign: 'center',
     lineHeight: 45
